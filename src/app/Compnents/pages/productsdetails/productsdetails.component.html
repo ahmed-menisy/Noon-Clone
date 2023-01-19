@@ -1,0 +1,202 @@
+<div class="container-fluid py-4 px-5 overflow-hidden">
+    <div class="row g-3">
+       <div class="col-md-6 col-lg-4">
+          <div class="item d-flex gap-3" >
+             <div
+                class="images-icon flex-shrink-0 d-flex flex-column gap-2"
+             >
+                <img
+                   [src]="newpro.images[0]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+                <img
+                [src]="newpro.images[1]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+                <img
+                [src]="newpro.images[2]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+                <img
+                [src]="newpro.images[3]"
+                   alt="icon photo"
+                   class="img-thumbnail"
+                />
+             </div>
+            <div class="image">
+             <img
+             [src]="newpro.thumbnail"
+             alt="photo product"
+             class="w-100"
+          />
+            </div>
+          </div>
+       </div>
+       <div class="col-md-6 col-lg-5">
+         <div *ngIf="newpro.rating>4.8" class="best-seller">
+            {{"Best Seller" | translate}}
+          </div>
+
+          <h6 class="text-muted my-2">{{newpro.brand}}</h6>
+          <h4 class="text-dark">{{newpro.description}}</h4>
+          <div class="d-flex gap-3">
+             <p class="m-0">{{"Model Number :" | translate}} 10001096</p>
+             <span class="vr"></span>
+             <span class="badge bg-green d-flex align-items-center"
+                >{{newpro.rating}}  <i class=" fa-solid fa-star fa-sm"></i></span>
+             <span href="" class="m-0">{{"Ratings" | translate}}</span>
+          </div>
+          <p>
+             {{"Was:" | translate}}
+             <span class="text-decoration-line-through">{{"EGP" | translate}} 899.00 </span>
+          </p>
+          <p>
+             {{"Now:" | translate}}
+             <span class="fw-bold fs-3">{{newpro.price}}   {{"EGP" | translate}}   </span>
+             <span class="text-muted"> {{"Inclusive of VAT" | translate}}</span>
+          </p>
+          <p>
+             {{"Saving:" | translate}}
+             <span>{{"EGP" | translate}} 12.70 </span>
+             <span class="text-success badge bg-green1">{{newpro.discountPercentage}}% {{"OFF" | translate}}</span>
+          </p>
+          <p>
+             <img src="./assets/images/emi.svg" class="img-fluid" alt="icon" />
+             {{"Monthly payment plans from" | translate}} {{"EGP" | translate}} 43
+             <a href="">{{"View more details" | translate}} </a>
+          </p>
+          <img
+             src="./assets/images/en_pdp-01.png"
+             alt="photo none"
+             class="img-fluid"
+          />
+          <div class="details bg-light p-3 my-3">
+             <h6>{{"Order in 23 hrs 10 mins" | translate}}</h6>
+             <div class="d-flex justify-content-between">
+                <p class="fw-semibold">
+                   {{"Free delivery" | translate}} <span class="fw-normal">{{"by" | translate}}</span
+                   ><span class="text-decoration-underline">
+                      {{"Mon, Jul 18" | translate}}</span
+                   >
+                </p>
+                <div class="imag-details">
+                   <img
+                      src="./assets/images/fulfilment_express_v2-en.svg"
+                      class="img-fluid"
+                      alt="express photo"
+                   />
+                   <img
+                      src="./assets/images/help.svg"
+                      class="img-fluid"
+                      alt="help photo"
+                   />
+                </div>
+             </div>
+             <div class="d-flex align-items-start bg-white p-2">
+                <img
+                   src="./assets/images/same_day_delivery.svg"
+                   class="img-fluid me-2"
+                   alt="icon"
+                />
+                <p>
+
+                   {{"Want it Tomorrow? Select Get It Tomorrow on checkout within the next 8 hrs and 10 mins." | translate}}
+                </p>
+             </div>
+          </div>
+
+       <!-- Cart Part -->
+          <div>
+             <h4 class="my-3">{{"Quantity" | translate}}</h4>
+             <div class="hstack gap-3">
+               <button type="button" (click)="minus()"><i class="fa fa-minus"></i></button>
+               <input type="text" [value]="quantity">
+               <button type="button" (click)="plus()"><i class="fa fa-plus"></i></button>
+
+
+                <div class="col-8 px-0">
+                  <button id="addToCart" class="btn badge ms-3 w-100 h-100" (click)="addToCart(newpro)">
+                    {{"Add To Cart" | translate}}
+                  </button>
+                </div>
+               
+             </div>
+          </div>
+         <!-- end -->
+
+       </div>
+       <div class="col-md-6 col-lg-3">
+          <ul class="list-group list-group-flush border-start">
+             <li class="list-group-item d-flex align-items-start">
+                <img
+                   src="./assets/images/non_returnable.svg"
+                   class="img-fluid"
+                   alt=""
+                />
+                <span
+                   >{{"This item cannot be exchanged or returned" | translate}}</span
+                >
+             </li>
+             <li class="list-group-item">
+                <div class="d-flex align-items-center">
+                   <img
+                      src="./assets/images/seller.svg"
+                      class="img-fluid icon-details"
+                      alt=""
+                   />
+                   <div class="details-item">
+                      <p class="m-0">{{"Sold by" | translate}} <a href="">{{"noon" | translate}}</a></p>
+                      <p class="m-0">
+                         <span
+                            class="badge bg-green "
+                            >{{newpro.rating}} <i class="fa-solid fa-star fa-sm"></i
+                         ></span>
+                         79%{{"positive" | translate}}
+                      </p>
+                   </div>
+                </div>
+                <p class="text-muted my-3">{{"100% authenticity guaranteed by noon" | translate}} </p>
+
+             </li>
+             <li class="list-group-item d-flex align-items-center gap-2 badge-img text-center">
+                <div class="item">
+                   <img src="./assets/images/badge_great_recent_rating.png" class="img-fluid" alt="">
+                   <p class="small">{{"Low Return Seller" | translate}} </p>
+                </div>
+                <div class="item">
+                   <img src="./assets/images/badge_low_returns_seller.png" class="img-fluid" alt="">
+                   <p class="small">{{"Great Recent Rating" | translate}} </p>
+                </div>
+                <hr class="vr">
+                <div class="item">
+                   <h6 class="text-success fw-bold">84%</h6>
+                   <p class="small">{{"Product as Described" | translate}}  </p>
+                </div>
+             </li>
+             <li class="list-group-item">
+                <div class="item d-flex align-items-start">
+                   <img src="./assets/images/trusted_shipping_usp_v2.svg" class="img-fluid" alt="">
+                   <div class="det">
+                      <h6 class="text-muted">{{"TRUSTED SHIPPING" | translate}}
+                      </h6>
+                      <p class="text-muted small">{{"Free shipping when you spend EGP 200 and above on express items" | translate}} </p>
+                   </div>
+                </div>
+                <div class="item d-flex align-items-start">
+                   <img src="./assets/images/secure_usp.svg" class="img-fluid" alt="">
+                   <div class="det">
+                      <h6 class="text-muted">
+                         {{"SECURE SHOPPING" | translate}}
+                      </h6>
+                      <p class="text-muted small">{{"Your data is always protected" | translate}}
+                      </p>
+                   </div>
+                </div>
+             </li>
+          </ul>
+       </div>
+    </div>
+ </div>

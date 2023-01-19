@@ -1,0 +1,283 @@
+<form
+  [formGroup]="usrFormGroup"
+  (ngSubmit)="addProduct($event)"
+  class="m-2 w-75 border-1 m-auto p-4 mt-3"
+>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="usrName" class="form-label">{{"Title" | translate}}</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          id="title"
+          formControlName="title"
+          [class.is-valid]="title?.valid"
+          [class.is-invalid]="title?.invalid"
+          placeholder="Enter Product Title"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="title?.valid || title?.untouched"
+        >
+          <span *ngIf="title?.errors?.['required']">{{"title is required" | translate}}</span>
+          <span *ngIf="title?.errors?.['pattern']">{{"title must be string" | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="description" class="form-label">{{"Description" | translate}}</label>
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          id="description"
+          formControlName="description"
+          [class.is-valid]="description?.valid"
+          [class.is-invalid]="description?.invalid"
+          placeholder="Enter Product description here"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="description?.valid || description?.untouched"
+        >
+          <span *ngIf="description?.errors?.['required']"
+            >{{"description is required" | translate}}</span
+          >
+          <span *ngIf="description?.errors?.['pattern']"
+            >{{"description must be string" | translate}}</span
+          >
+          <span *ngIf="description?.errors?.['minlength']">
+            {{"Description must be at least 20 letters" | translate}}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="stock" class="form-label">{{"Stock" | translate}}</label>
+        <input
+          type="number"
+          class="form-control"
+          name="stock"
+          id="stock"
+          formControlName="stock"
+          [class.is-valid]="stock?.valid"
+          [class.is-invalid]="stock?.invalid"
+          placeholder="Enter Number"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="stock?.valid || stock?.untouched"
+        >
+          <span *ngIf="stock?.errors?.['required']">{{"Stock is required" | translate}}</span>
+          <span *ngIf="stock?.errors?.['min']"
+            >{{"Stock Must be Positive Number" | translate}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="rating" class="form-label">{{"Rating" | translate}}</label>
+        <input
+          type="number"
+          class="form-control"
+          name="rating"
+          id="rating"
+          formControlName="rating"
+          [class.is-valid]="rating?.valid"
+          [class.is-invalid]="rating?.invalid"
+          placeholder="Enter Number"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="rating?.valid || rating?.untouched"
+        >
+          <span *ngIf="rating?.errors?.['required']">{{"Rating is required" | translate}}</span>
+          <span *ngIf="rating?.errors?.['min']"
+            >{{"Rating Must be Positive Number" | translate}}
+          </span>
+          <span *ngIf="rating?.errors?.['max']">{{"Rating Must not exceed 9" | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="price" class="form-label">{{"Price" | translate}}</label>
+        <input
+          type="number"
+          class="form-control"
+          name="price"
+          id="price"
+          formControlName="price"
+          [class.is-valid]="price?.valid"
+          [class.is-invalid]="price?.invalid"
+          placeholder="Enter Number"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="price?.valid || price?.untouched"
+        >
+          <span *ngIf="price?.errors?.['required']">{{"price is required" | translate}}</span>
+          <span *ngIf="price?.errors?.['min']">{{"price must be Positive" | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="discountPercentage" class="form-label"
+          >{{"Discount Percentage" | translate}}</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          name="discountPercentage"
+          id="discountPercentage"
+          formControlName="discountPercentage"
+          [class.is-valid]="discountPercentage?.valid"
+          [class.is-invalid]="discountPercentage?.invalid"
+          placeholder="Enter Number"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="discountPercentage?.valid || discountPercentage?.untouched"
+        >
+          <span *ngIf="discountPercentage?.errors?.['required']"
+            >{{"Discount Percentage is required" | translate}}</span
+          >
+          <span *ngIf="discountPercentage?.errors?.['min']"
+            >{{"Discount Percentage must be Positive" | translate}}</span
+          >
+          <span *ngIf="discountPercentage?.errors?.['max']"
+            >{{"Discount Percentage must not exceed 60" | translate}}</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="brand" class="form-label">{{"Brand" | translate}}</label>
+        <input
+          type="text"
+          class="form-control"
+          name="brand"
+          id="brand"
+          formControlName="brand"
+          [class.is-valid]="brand?.valid"
+          [class.is-invalid]="brand?.invalid"
+          [pattern]="stringPattern"
+          placeholder="Enter Product Brand"
+        />
+
+        <div
+          class="alert alert-warning"
+          [hidden]="brand?.valid || brand?.untouched"
+        >
+          <span *ngIf="brand?.errors?.['required']">{{"brand is required" | translate}}</span>
+          <span *ngIf="brand?.errors?.['pattern']">{{"Brand must be String" | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="category" class="form-label">{{"Category" | translate}}</label>
+        <input
+          type="text"
+          class="form-control"
+          name="category"
+          id="category"
+          formControlName="category"
+          [class.is-valid]="category?.valid"
+          [class.is-invalid]="category?.invalid"
+          placeholder="Enter Product Category"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="category?.valid || category?.untouched"
+        >
+          <span *ngIf="category?.errors?.['required']"
+            >{{"Category is required" | translate}}</span
+          >
+          <span *ngIf="category?.errors?.['pattern']"
+            >{{"Category must be String" | translate}}</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="thumbnail" class="form-label">{{"thumbnail URl" | translate}}</label>
+        <input
+          type="text"
+          class="form-control"
+          name="thumbnail"
+          id="thumbnail"
+          formControlName="thumbnail"
+          [class.is-valid]="thumbnail?.valid"
+          [class.is-invalid]="thumbnail?.invalid"
+          [pattern]="linkPattern"
+          placeholder="Enter thumbnail Url"
+        />
+        <div
+          class="alert alert-warning"
+          [hidden]="thumbnail?.valid || thumbnail?.untouched"
+        >
+          <span *ngIf="thumbnail?.errors?.['required']"
+            >{{"Thumbnail is required" | translate}}</span
+          >
+          <span *ngIf="thumbnail?.errors?.['pattern']">{{"Enter Valid URL" | translate}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div formArrayName="images">
+        <div class="mb-3" *ngFor="let img of images.controls; let i = index">
+          <label for="images{{ i + 1 }}" class="form-label"
+            >{{"Images" | translate}}{{ i + 1 }} {{"URL" | translate}}</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="images{{ i + 1 }}"
+            id="images{{ i + 1 }}"
+            [formControlName]="i"
+            [pattern]="linkPattern"
+            [class.is-valid]="images.controls[i].valid"
+            [class.is-invalid]="images.controls[i].invalid"
+            placeholder="Enter image URL"
+          />
+          <div class="d-flex justify-content-between mt-3 mb-3">
+            <button
+              *ngIf="img.value && i == images.controls.length - 1"
+              (click)="addImage()"
+              class="btn btn-primary"
+            >
+              +
+            </button>
+            <button
+              *ngIf="img.value && i == images.controls.length - 2"
+              (click)="removeImg()"
+              class="btn btn-danger"
+            >
+              -
+            </button>
+          </div>
+          <div
+            class="alert alert-warning"
+            [hidden]="images.controls[i].valid || images.untouched"
+          >
+            <span *ngIf="images.controls[i].invalid"
+              >{{"You must enter Valid Url" | translate}}</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="usrFormGroup.invalid" class="btn">{{"Save" | translate}}</button>
+</form>

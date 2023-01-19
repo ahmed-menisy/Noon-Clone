@@ -1,0 +1,29 @@
+.is-invalid{
+  border-left: 5px solid #F00;
+}
+.is-valid{
+  border-left: 5px solid #080;
+}
+.updatePage{
+  background-image: linear-gradient( rgb(255 254 156), rgb(247, 247, 250));
+  padding: 50px 0;
+}
+form{
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 0 15px rgb(254 238 0);
+  border-radius: 10px;
+  background-color: #fff;
+  label{
+    font-weight: bold;
+  }
+
+}
+
+.iconeye{
+  top: 6px;
+  right: 40px;
+  background-color: #ffeb00;
+  position: absolute;
+  padding: 5px;
+  border-radius: 50%;
+}

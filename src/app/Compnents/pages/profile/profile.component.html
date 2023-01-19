@@ -1,0 +1,25 @@
+<div *ngIf="sellerCode" class="profile w-100">
+  <div class="info">
+    <div class="container-fluid">
+      <app-user-profile></app-user-profile>
+      <div class="buttons m-auto">
+        <button class="btn me-2" (click)="addingFunction()">{{"Add Product"|translate}}</button>
+        <button class="btn" (click)="showFunction()">{{"Show Products"|translate}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="userData w-100">
+    <div *ngIf="adding">
+      <app-add-product [product]="product" [sellerCode]="sellerCode" [update]="update"></app-add-product>
+    </div>
+    <div class="w-100 my-5" *ngIf="!adding">
+      <app-products-swiper
+        [products]="sellerProducts"
+        [sellerCode]="sellerCode"
+      ></app-products-swiper>
+    </div>
+  </div>
+</div>
+<div *ngIf="!sellerCode" class="w-100  vh-100 d-flex justify-content-center align-items-center">
+  <h2> OPPSS!! You must be seller to access this page....</h2>
+</div>

@@ -1,0 +1,37 @@
+
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="10"
+  [pagination]="{
+    clickable: true
+  }"
+  [breakpoints]="{
+    '@0.00': {
+      slidesPerView: 2,
+      spaceBetween: 10
+    },
+    '@0.75': {
+      slidesPerView: 3,
+      spaceBetween: 10
+    },
+    '@1.00': {
+      slidesPerView: 4,
+      spaceBetween: 10
+    },
+    '@1.25': {
+      slidesPerView: 6,
+      spaceBetween: 10
+    },
+    '@1.50': {
+      slidesPerView: 9,
+      spaceBetween: 10
+    }
+  }"
+  class="mySwiper"
+>
+  <ng-template swiperSlide *ngFor="let img of images">
+    <a>
+      <img swiperSlide [src]="img.src" name="{{ img.category }}" alt="..." />
+    </a>
+  </ng-template>
+</swiper>

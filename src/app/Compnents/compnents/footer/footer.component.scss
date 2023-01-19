@@ -1,0 +1,172 @@
+.footerSection{
+  .upper{
+    background-color: rgb(247,247,250);
+    padding: 20px 20px 0 20px;
+    border-bottom: 1px solid rgb(184, 186, 191);;
+    .upperLeft{
+      h3{
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: rgb(64, 69, 83);
+      }
+      p{
+        font-size: 1rem;
+        color: rgb(126, 133, 155);
+        margin-top: 5px;
+      }
+    }
+    .upperRight{
+      .contactWays{
+        cursor: pointer;
+        display: flex;
+        transition: all 0.5s ease-in-out;
+        padding:0 10px 10px 0;
+        p{
+          border: 1px solid rgb(226, 229, 241);
+          background-color: white;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          padding: 9px;
+          display: flex;
+          -webkit-box-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          box-sizing: border-box;
+          margin: 10px 10px 0 0;
+          i{
+            font-size: 22px;
+          }
+        }
+        .content{
+          display: inline-block;
+          h5{
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            color: rgb(126, 133, 155);
+            }
+            a{
+              text-decoration: none;
+              h3{
+                font-weight: 600;
+                font-size: 1.2rem;
+                color: rgb(64, 69, 83);
+                line-height: 1.4;
+                white-space: nowrap;
+            }
+            }
+        }
+      }
+      .contactWays:hover{
+        transform: scale(1.1);
+      }
+
+    }
+  }
+  .middel{
+    padding: 20px;
+    .header{
+      font-weight: bold;
+      padding-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    ul{
+      li{
+        padding-bottom: 10px ;
+        cursor: pointer;
+        a{
+          font-size: 0.9rem;
+          color: rgb(126, 133, 155);
+        }
+      }
+      li:hover{
+        a{
+          color: #000;
+        }
+      }
+    }
+
+  }
+  .lower{
+    h4{
+    font-weight: bold;
+    color: rgb(64, 69, 83);
+    margin-bottom: 8px;
+    font-size: 1rem;
+    }
+    .myLink{
+      img{
+        height: 35px;
+        transition: all 0.5s ease-in-out;
+      }
+      img:hover{
+        opacity: .8;
+      }
+    }
+   ul{
+    li{
+      margin: 0 7px;
+      p{
+        border: 1px solid rgb(226, 229, 241);
+        background-color: rgb(254, 238, 0);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding: 9px;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        box-sizing: border-box;
+        transition: all 0.5s ease-in-out;
+        i{
+          font-size: 25px;
+        }
+      }
+      p:hover{
+        background-color: rgb(64, 69, 83);
+        color: yellow;
+      }
+    }
+   }
+  }
+  .copyRight{
+    background-color: rgb(247,247,250);
+    padding: 20px 20px 40px 20px;
+    border-top: 1px solid rgb(184, 186, 191);
+    .copyText{
+        padding-left: 10px;
+        p{
+          font-size: 1rem;
+                color: rgb(126, 133, 155);
+                margin-top: 5px;
+        }
+    }
+    .payWays{
+      ul{
+        li{
+          margin-right: 25px;
+          img{
+            height: 15px;
+          }
+        }
+      }
+    }
+    .links{
+      .myLink{
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: rgb(126, 133, 155);
+        padding: 7px;
+        transition: all 0.5s ease-in-out;
+      }
+      .myLink:hover{
+        color: #000;
+      }
+
+    }
+  }
+}

@@ -1,0 +1,152 @@
+<!-- cart empty -->
+<ng-container *ngIf="products.length == 0">
+  <div class="center text-center">
+    <h3><b>Your cart is empty</b></h3>
+    <p>
+      You have items in your wishlist. To buy items from your wishlist, move
+      them to your cart.
+    </p>
+    <button
+      class="continue"
+      class="btn btn-outline-primary mt-4 mb-4"
+      routerLink="/Home"
+    >
+      CONTINUE SHOPPING
+    </button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length != 0">
+  <div class="container-fluid overflow-hidden">
+    <div class="cartdiv">
+      <div class="row">
+        <div class="col-lg-7 col-md-7 mt-4" style="margin-left: 50px">
+          <!-- Cart -->
+          <div id="cart">
+            <div class="cart">
+              <div class="header p-1" id="headercart">
+                <h4>Cart</h4>
+              </div>
+
+              <ng-container>
+                <div *ngFor="let product of products">
+                  <div class="row p-3">
+                    <div class="col-lg-2">
+                      <img [src]="product.thumbnail" class="img-fluid" />
+                    </div>
+
+                    <div class="col-7">
+                      <p>{{ product.brand }}</p>
+                      <p>{{ product.description }}</p>
+                      <p class="mt-4"><b>Price:</b> {{ product.price }} LE</p>
+
+                      <p class="mt-4">
+                        <b>Quantity:</b> {{ product.quantity }} items
+                      </p>
+
+                      <p class="mt-4">
+                        <b>Total:</b> {{ product.price * product.quantity }} LE
+                      </p>
+
+                      <p>Sold by <b>noon Brands</b></p>
+                      <div class="details bg-light p-3 my-3">
+                        <h6>Order in 23 hrs 10 mins</h6>
+                        <div class="d-flex justify-content-between">
+                          <p class="fw-semibold">
+                            Free delivery <span class="fw-normal">by</span
+                            ><span class="text-decoration-underline">
+                              Mon, Jul 18</span
+                            >
+                          </p>
+                          <div class="imag-details">
+                            <img
+                              src="./assets/images/fulfilment_express_v2-en.svg"
+                              class="img-fluid"
+                              alt="express photo"
+                            />
+                            <img
+                              src="./assets/images/help.svg"
+                              class="img-fluid"
+                              alt="help photo"
+                            />
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-start bg-white p-2">
+                          <img
+                            src="./assets/images/same_day_delivery.svg"
+                            class="img-fluid me-2"
+                            alt="icon"
+                          />
+                          <p>
+                            Select<b> Get it tomorrow</b> on checkout to
+                            <b>get it tomorrow</b>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 text-center">
+                      <button
+                        class="btn btn-danger mt-4"
+                        (click)="removeItem(product)"
+                      >
+                        {{ "Remove" }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <!-- Router -->
+          <a routerLink="/Home">
+            <button class="btn btn-outline-primary mt-4 mb-4">
+              {{ "ContinueShopping" }}
+            </button>
+          </a>
+
+          <!-- orderdsammery -->
+        </div>
+        <div class="col-lg-4 col-md-4 mt-4">
+          <div class="rightside p-4">
+            <h5>{{ "OrderSummary" }}</h5>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="{{ 'copon' }}"
+                aria-label="Recipient's username"
+                aria-describedby="basic-addon2"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  {{ "Applay" }}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <p class="mt-4">{{ "Totatl" }}({{ totalQuantity }})</p>
+                <p class="mt-4">{{ "shipping" }}</p>
+              </div>
+              <div class="col-4">
+                <p class="mt-4">{{ grandTotal }}</p>
+                <p class="mt-4">{{ "Free" }}</p>
+              </div>
+            </div>
+            <hr />
+
+            <div class="row w-100">
+              <div class="col-12 text-center">
+                <div class="row mt-2 align-items-center">
+                  <div class="col-md-12">
+                    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

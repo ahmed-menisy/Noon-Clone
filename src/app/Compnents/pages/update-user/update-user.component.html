@@ -1,0 +1,223 @@
+<div class="updatePage p-5">
+  <div class="updateSection">
+    <div class="container">
+      <h2 class="pb-5 text-center">Update Your Information</h2>
+      <form
+        [formGroup]="usrFormGroup"
+        (ngSubmit)="updateUser()"
+        class="myform p-3 m-auto"
+        style="width: 75%"
+      >
+        <div>
+          <label for="usrName" class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="usrName"
+            id="usrName"
+            formControlName="fullName"
+            [class.is-valid]="fullName?.valid"
+            [class.is-invalid]="fullName?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="fullName?.valid || fullName?.untouched"
+          >
+            <span *ngIf="fullName?.errors?.['required']"
+              >Full Name is required</span
+            >
+            <span *ngIf="fullName?.errors?.['minlength']">
+              Full Name must be at least 5 letters</span
+            >
+          </div>
+        </div>
+        <hr />
+        <div>
+          <label for="usrEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="usrEmail"
+            id="usrEmail"
+            formControlName="email"
+            [class.is-valid]="email?.valid"
+            [class.is-invalid]="email?.invalid"
+            [pattern]="emailPattern"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="email?.valid || email?.untouched"
+          >
+            <span *ngIf="email?.errors?.['required']">Email is required</span>
+            <span *ngIf="email?.errors?.['pattern']">
+              Email must ended by @gmail.com</span
+            >
+          </div>
+        </div>
+        <hr />
+        <div>
+          <label for="image" class="form-label">image URl</label>
+          <input
+            type="text"
+            class="form-control"
+            name="image"
+            id="image"
+            formControlName="image"
+            [class.is-valid]="image?.valid"
+            [class.is-invalid]="image?.invalid"
+            [pattern]="linkPattern"
+            placeholder="Enter image Url"
+          />
+          <div
+            class="alert alert-warning"
+            [hidden]="image?.valid || image?.untouched"
+          >
+            <span *ngIf="image?.errors?.['required']">image is required</span>
+            <span *ngIf="image?.errors?.['pattern']">Enter Valid URL</span>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <label for="mobile" class="form-label">Mobile</label>
+          <input
+            type="text"
+            class="form-control"
+            name="mobile"
+            id="mobile"
+            formControlName="mobile"
+            [class.is-valid]="mobile?.valid"
+            [class.is-invalid]="mobile?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="mobile?.valid || mobile?.untouched"
+          >
+            <span *ngIf="mobile?.invalid">You must enter your Mobile</span>
+          </div>
+        </div>
+        <hr />
+
+        <div>
+          <label for="address" class="form-label">Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="address"
+            id="address"
+            formControlName="address"
+            [class.is-valid]="address?.valid"
+            [class.is-invalid]="address?.invalid"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="address?.valid || address?.untouched"
+          >
+            <span *ngIf="address?.invalid">You must enter your Address</span>
+          </div>
+        </div>
+        <hr />
+        <div
+          class="btn-group"
+          role="group"
+          aria-label="Basic radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="userType"
+            id="btnradio1"
+            autocomplete="off"
+            value="seller"
+            formControlName="userType"
+            #seller
+          />
+          <label class="btn btn-outline-warning" for="btnradio1">Seller</label>
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="userType"
+            id="btnradio2"
+            autocomplete="off"
+            value="buyer"
+            formControlName="userType"
+          />
+          <label class="btn btn-outline-warning" for="btnradio2">Buyer</label>
+        </div>
+        <hr />
+        <div>
+          <label for="usrPass" class="form-label">Password</label>
+          <div style="position: relative">
+            <input
+              [type]="show"
+              class="form-control"
+              name="usrPass"
+              id="usrPass"
+              formControlName="password"
+              [class.is-valid]="password?.valid"
+              [class.is-invalid]="password?.invalid"
+            />
+            <i
+              class="iconeye"
+              [class]="eye"
+              (click)="toggle()"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="password?.valid || password?.untouched"
+          >
+            <span *ngIf="password?.errors?.['required']"
+              >password is required</span
+            >
+            <span *ngIf="password?.errors?.['minlength']">
+              Password must be at least 5 letters</span
+            >
+          </div>
+        </div>
+        <hr />
+        <div>
+          <label for="rePassword" class="form-label">Retype Password</label>
+          <div style="position: relative">
+            <input
+              [type]="show"
+              class="form-control"
+              name="rePassword"
+              id="rePassword"
+              formControlName="rePassword"
+              [class.is-valid]="
+                rePassword?.valid && rePassword?.value == password?.value
+              "
+              [class.is-invalid]="rePassword?.value != password?.value"
+            />
+            <i
+              class="iconeye"
+              [class]="eye"
+              (click)="toggle()"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="
+              rePassword?.value == password?.value || rePassword?.untouched
+            "
+          >
+            <div *ngIf="rePassword?.value != password?.value">
+              Password must be matched
+            </div>
+          </div>
+        </div>
+        <br />
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!usrFormGroup.valid"
+        >
+          Update
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

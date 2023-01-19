@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800;900&display=swap");
+body {
+   font-family: "Catamaran", sans-serif;
+}
+.images-icon {
+   max-width: 80px;
+}
+.images-icon img {
+   cursor: pointer;
+}
+.icon-top {
+   background-color: #404553;
+   padding: 0 2px 0 20px;
+   color: #feee00;
+}
+.icon-top::after {
+   content: "";
+   position: absolute;
+   border: calc(23px / 2) solid;
+   top: 0;
+   left: 100%;
+   border-color: transparent transparent transparent #404553;
+}
+.bg-green {
+   background-color: #38ae04;
+}
+.bg-green1 {
+   background-color: #37ae0477;
+}
+.select-item {
+   width: 40px;
+}
+.icon-details {
+   width: 50px;
+   border-radius: 50%;
+   border: 1px solid #ccc;
+   padding: 5px;
+   margin-right: 10px;
+}
+.badge-img img{
+   width: 25px;
+}
+
+//========hazem 
+#addToCart{
+   background-color: #2B4CD7;
+ }
+ 
+ #addToCart:hover{
+   background-color: #fff;
+   color: #2B4CD7;
+   border: 2px solid #2B4CD7;
+ }

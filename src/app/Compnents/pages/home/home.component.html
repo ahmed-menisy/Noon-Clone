@@ -1,0 +1,70 @@
+<div class="ad">
+  <img src="./../../../assets/ad.png" class="d-block w-100" alt="..." />
+</div>
+<app-carousel-component></app-carousel-component>
+
+<app-frist-swiper> </app-frist-swiper>
+
+<!-- Ads -->
+<div class="container-fluid my-4">
+<div class="row gx-1" >
+<div class="col-3">
+  <img width="100%" src="https://k.nooncdn.com/cms/pages/20220705/278bc16b280948157f1ef19eb2acc969/en_dk_eg-mega-01.png" alt="/home-and-kitchen/eg-summerappliances" class="sc-crXcEl iMxqHU">
+</div>
+<div class="col-3">
+  <img  width="100%" src="https://k.nooncdn.com/cms/pages/20220629/7b8c2d12780719e591297ae0420857c9/en_dk_eg-mega-module-01.png" alt="/beauty-and-health/beauty/skin-care-16813/sun" class="sc-crXcEl iMxqHU">
+</div>
+<div class="col-3">
+  <img  width="100%" src="https://k.nooncdn.com/cms/pages/20220707/2e982422d7ce7fc680a2d64be0c5c65a/en_dk_eg-mega-module-02.png" alt="/fashion/women-31229/swimwear-megadeal-starting25-FA_03/?f[is_fbn]=1&amp;limit=50&amp;sort[by]=new_arrivals&amp;sort[dir]=desc" class="sc-crXcEl iMxqHU">
+</div>
+<div class="col-3">
+  <img  width="100%" src="https://k.nooncdn.com/cms/pages/20220704/24b658763b9333a7ce57cb8136fab8cc/en_dk_eg-mega-01.png" alt="/eg-jul22-grocery" class="sc-crXcEl iMxqHU">
+</div>
+
+</div>
+
+
+
+</div>
+<div class="container-fluid">
+<h2 class="my-5"> {{"people Liked:" | translate}}</h2>
+<app-products-swiper [products]="bestSeller"></app-products-swiper>
+</div>
+
+<!-- Ads -->
+<div class="container-fluid color">
+  <div class="row  p-2 gx-1 my-4" >
+
+    <div class="col-12">
+      <img width="100%" src="https://k.nooncdn.com/cms/pages/20211206/d0c75d40c77381b43e180d4d63d534b5/en_title-05.png" >
+    </div>
+    <div class="col-2">
+      <img width="100%" src="https://k.nooncdn.com/cms/pages/20211206/8908ea4092c77b5ac68851cf40251c4b/en_cat-19.png" >
+    </div>
+    <div class="col-2">
+      <img width="100%" src="https://k.nooncdn.com/cms/pages/20211206/8908ea4092c77b5ac68851cf40251c4b/en_cat-23.png">
+    </div>
+    <div class="col-2">
+      <img  width="100%" src="https://k.nooncdn.com/cms/pages/20211206/8908ea4092c77b5ac68851cf40251c4b/en_cat-49.png" >
+      </div>
+    <div class="col-2">
+      <img width="100%" src="https://k.nooncdn.com/cms/pages/20211206/8908ea4092c77b5ac68851cf40251c4b/en_cat-21.png">
+    </div>
+    <div class="col-2">
+    <img width="100%" src="https://k.nooncdn.com/cms/pages/20211206/8908ea4092c77b5ac68851cf40251c4b/en_cat-22.png" >
+  </div>
+  <div class="col-2">
+    <img width="100%" src="https://k.nooncdn.com/cms/pages/20211206/8908ea4092c77b5ac68851cf40251c4b/en_cat-20.png" >
+  </div>
+  </div>
+</div>
+
+<div class="container-fluid my-3">
+<h2 class="my-5">{{"All Products:" | translate}}</h2>
+<app-products-swiper [products]="allProducts" ></app-products-swiper>
+</div>
+
+
+
+
+<button class="btn btn-info" routerLink="/Profile">Take Round!</button>

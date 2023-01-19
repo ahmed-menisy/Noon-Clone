@@ -1,0 +1,78 @@
+<div class="updatePage p-5">
+  <div class="updateSection">
+    <div class="container">
+      <h2 class="pb-5 text-center">Welcome To Noon</h2>
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+        class="myform p-3 m-auto"
+        style="width: 75%"
+      >
+        <div>
+          <label for="usrEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="usrEmail"
+            id="usrEmail"
+            formControlName="email"
+            [class.is-valid]="email?.valid"
+            [class.is-invalid]="email?.invalid"
+            [pattern]="emailPattern"
+          />
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="email?.valid || email?.untouched"
+          >
+            <span *ngIf="email?.errors?.['required']">Email is required</span>
+            <span *ngIf="email?.errors?.['pattern']">
+              Email must ended by @gmail.com</span
+            >
+          </div>
+        </div>
+        <hr />
+        <div>
+          <label for="usrPass" class="form-label">Password</label>
+          <div style="position: relative">
+            <input
+              [type]="show"
+              class="form-control"
+              name="usrPass"
+              id="usrPass"
+              formControlName="password"
+              [class.is-valid]="password?.valid"
+              [class.is-invalid]="password?.invalid"
+            />
+            <i
+              class="iconeye"
+              [class]="eye"
+              (click)="toggle()"
+              aria-hidden="true"
+            ></i>
+          </div>
+          <div
+            class="alert alert-warning mt-1"
+            [hidden]="password?.valid || password?.untouched"
+          >
+            <span *ngIf="password?.errors?.['required']"
+              >password is required</span
+            >
+            <span *ngIf="password?.errors?.['minlength']">
+              Password must be at least 5 letters</span
+            >
+          </div>
+        </div>
+        <hr />
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="!loginForm.valid"
+        >
+          Login
+        </button>
+      </form>
+
+    </div>
+  </div>
+ <h6 class='mx-auto  w-100  text-center mt-3'>You don't have account ? <a routerLink="/register">{{"register" | translate}}</a></h6>
+ 

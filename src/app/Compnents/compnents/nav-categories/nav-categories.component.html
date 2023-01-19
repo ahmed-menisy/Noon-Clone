@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand  navbar-light py-0 bg-light border border-top-0 ">
+    <div class="container-fluid ">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="scroll-bar" >
+        <ul class="navbar-nav">
+          <li class="nav-cat" (mouseover)="showfun()" (mouseleave)="hidefun()">
+            <a class="nav-link text-primary nav-cat-text"  routerLink="/allproducts" >{{"ALL CATEGORIES" | translate}}<i class="fa fa fa-angle-down ps-4 "></i></a>
+
+          </li>
+          <li class="nav-item " (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()" >
+            <a class="nav-link"  aria-current="page" href="#">{{"ELECTRONICS" | translate}}</a>
+          </li>
+          <li  class="nav-item"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">
+            <a class="nav-link " href="#" >{{"MOBILES" | translate}}</a>
+          </li>
+          <li class="nav-item"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">
+            <a class="nav-link" href="#">{{"MEN" | translate}}</a>
+          </li>
+          <li class="nav-item"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">
+            <a class="nav-link" href="#" >{{"WOMEN" | translate}}</a>
+          </li>
+          <li class="nav-item"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">
+            <a class="nav-link" href="#" >{{"HOME" | translate}}</a>
+          </li>
+          <li class="nav-item"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">
+            <a class="nav-link" href="#" > {{"BEUATY&HEALTHY" | translate}}</a>
+          </li>
+          <li class="nav-item"  (mouseover)="showmenu($event)"  (mouseleave)="hidemenu()">
+            <a class="nav-link" href="#">{{"SUPERMARKET" | translate}}</a>
+
+          </li>
+          <li class="nav-item min-width">
+            <a class="nav-link text-danger fw-bold" routerLink="/Profile">{{"SELL ON NOON" | translate}}</a>
+
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+</nav>
+
+<!-- menu for All categories -->
+<div class="extened-menu" [hidden]="show">
+  <div class="row gx-0 w-50" (mouseover)="showfun()" (mouseleave)="hidefun()">
+    <ul class="col-4 categories">
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)"  >{{"Electronics" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)">{{"Mobiles" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)"> {{"Grocery" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)">{{"Beauty & Health" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)"> {{"Fashion" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)"> {{"Baby Products" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)"> {{"Books" | translate}}</li>
+    <li class="list-group-item border-0"(mouseover)="changeCat($event)">  {{"Music" | translate}}</li>
+  </ul>
+
+
+  <ul class="col-4  details p-3">
+   <h5>{{Categorey}}</h5>
+   <hr>
+    <li class="list-group-item text-black fw-bolder border-0">{{"Most popular" | translate}}</li>
+    <li class="list-group-item border-0 py-1" *ngFor="let cat of cats" routerLink="/productsCat/{{cat}}"> {{cat}}</li>
+
+  </ul>
+  <ul class="col-4 details p-3">
+
+     <li class="list-group-item text-black fw-bolder border-0 pt-5 mt-3">{{"Top Brands" | translate}}</li>
+     <li class="list-group-item border-0  py-1" *ngFor="let brand of brands"> {{brand}}</li>
+
+   </ul>
+
+</div>
+
+
+  </div>
+
+
+<!-- menu for categories -->
+ <div class="extened-menu  " [hidden]="menu" >
+  <div class="row gx-0 w-100 bg-white  "(mouseover)="showmenu($event)"  (mouseleave)="hidemenu()" >
+
+  <ul class="col-3 col-md-2 details ">
+   <li class="list-group-item border-0 fw-bolder text-black">{{"Categoreies" | translate}}</li>
+    <li class="list-group-item border-0 " *ngFor="let cat of cats"> {{cat}}</li>
+  </ul>
+
+  <div class="col-3 col-md-4  bg-white brands" >
+    <h6 class="my-3">{{"Top Brands" | translate}}</h6>
+    <div class="row gy-1 gy-lg-3 gx-1 gx-lg-3" >
+
+            <div  *ngFor="let img of brandsImg" class="col-4 ">
+             <div class=" border border-2">
+            <a>
+              <img width="100%" [src]="img" alt="url" class="w-100" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3 ms-3 mt-5">
+      <img
+        width="100%"
+        class="imgHeight"
+        src="https://z.nooncdn.com/cms/pages/20210408/2792ffeaded707bd95f25bd124a83af9/en_drop-01.png"
+      />
+    </div>
+
+    <div class="col-2 ms-3 mt-5">
+      <img
+        width="100%"
+        class="imgHeight"
+        src="https://z.nooncdn.com/cms/pages/20210408/2792ffeaded707bd95f25bd124a83af9/en_drop-02.png"
+      />
+    </div>
+  </div>
+</div>

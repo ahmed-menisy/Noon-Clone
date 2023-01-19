@@ -1,0 +1,35 @@
+<div class="profile w-100">
+  <div class="info">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="editProfile" (click)="openUpdateForm()">
+          <p><i class="fa fa-pencil" aria-hidden="true"></i></p>
+        </div>
+        <div class="col-md-6">
+          <div class="imgCon">
+            <img [src]="user.image" class="img" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div
+            class="d-flex flex-column h-100 justify-content-center infoContent"
+          >
+            <h2 class="mb-2">Hi, {{ user.fullName }}</h2>
+            <div class="tab">
+              <i class="fa fa-envelope"></i>
+              <span>{{ user.email }}</span>
+            </div>
+            <div class="tab">
+              <i class="fa fa-map-marker"></i>
+              <span>{{ user.address }}</span>
+            </div>
+            <div class="tab">
+              <i class="fa fa-phone"></i>
+              <span>{{ user.mobile }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
